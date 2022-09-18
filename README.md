@@ -19,7 +19,9 @@ In addition, a model is built to predict the yearly spent of users which the per
 **[Executive Summary](#executive)**  
 1. **[Introduction](#introduction)**  
 1. **[Planning](#planning)**      
-1. **[Results](#result)**  
+1. **[Exploratory Data Analysis - Visualization](#eda)**  
+1. **[Regression Assumptions Check](#assumption)**  
+1. **[Final Results](#result)**  
 
 
 ---
@@ -108,7 +110,62 @@ The columns inside dataset:
 ---
 
 
-## Result  
+## <div id='eda'>Exploratory Data Analysis - Visualization</div>  
+Here are useful findings found in the dataset:  
+- The distribution of numerical columns which all of them are nearly normal distribution.  
+![Numerical Columns Distribution](./assets/num_dist.png)  
+
+- These are the relations among numerical columns, shown by scatterplot & barplot. 
+![Numerical Columns Distribution](./assets/pairplot_num.png)  
+
+- The correlations among numerical columns are shown below. The length of membership column has the highest value of correlation with the target column, yearly amount spent.  
+![Numerical Columns Correlation](./assets/num_corr.png)  
+
+- Below are the distribution of categorical column (email_service_provider column & state column).  
+![Categorical Columns Distribution](./assets/nonnum_dist.png)  
+
+- The distribution of state column which customers majority are coming from AE & AA states.  
+![Numerical Columns Distribution](./assets/state_dist.png)  
+
+- The distribution of state column vs yearly amount spent which total customers' spent majority are coming from AE & AA states.  
+![Numerical Columns Distribution](./assets/num_state_vs_sumyearspent.png)  
+
+- The distribution of email_service_provider column which majority are coming from hotmail, gmail, and yahoo.    
+![Numerical Columns Distribution](./assets/mail_dist.png)  
+
+- The distribution of email_service_provider column vs yearly amount spent which total customers' spent are also coming from customers using hotmail, gmail, and yahoo too.    
+![Numerical Columns Distribution](./assets/num_emailvs_yearly_spent.png)  
+
+- The distribution of domain column which majority are coming dot com.    
+![Numerical Columns Distribution](./assets/domain_dist.png)  
+
+- The distribution of domain column vs yearly amount spent which majority total customers' spent are coming also from customers using dot com domain.    
+![Numerical Columns Distribution](./assets/num_domainvs_yearly_spent.png)  
+
+
+---
+
+## <div id='assumption'>Regression Assumptions Check</div>  
+To implement a regression method, below are assumptions that have been checked & met the assumptions:  
+#### Linearity  
+The predictors & target column seem to follow this assumption.  
+![](./assets/assumption_linear.png)  
+
+#### Homoscedasticity  
+Target column has equal variance, as the residuals are randomly scattered around the centerline of zero with no apparent pattern.  
+![](./assets/assumption_homsket.png)  
+
+#### Normal Distribution  
+Yes the target column follow the normal distribution assumption.  
+![](./assets/assumption_normal.png)  
+
+#### No Multi-collinearity  
+Just a little correlation among predictors.  
+![Numerical Columns Correlation](./assets/num_corr.png)  
+
+---
+
+## <div id='result'>Final Result</div>  
 **1. Answering Stakeholders Questions**  
 - *Which one should we focus on between market based on app or website?*  
 Clearly market based on app which shown by the time on app column has a stronger correlation with target column, Yearly Amount Spent. However, further analysis should be done to analyze why the customer on average put higher time in the website instead. The follow-up questions are:
@@ -146,4 +203,11 @@ The final model built is based on linear regression model (elasticnet) with:
 - Further analysis to analyze why the user spend longer time in the website than in the app should be done.
 - A model to predict yearly spent will be developed with REST API.
 - A dashboard to visually describe operational will be developed.
+
+
+---
+
+
+
+
 
